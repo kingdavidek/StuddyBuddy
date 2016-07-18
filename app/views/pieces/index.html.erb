@@ -1,0 +1,14 @@
+
+<h1>All Pieces</h1>
+
+<ul id="pieces">
+  <% @pieces.each do |piece| %>
+    <li>
+      <%= link_to piece.name, piece_path(piece), class: 'piece_title' %>
+      <!-- this middle part 'piece.name' is the part we want the link to say, the next part is our route helper.-->
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Create a New Piece", new_piece_path, class: "new_article" %>
