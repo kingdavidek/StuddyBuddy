@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  #we have a resource named "pieces" that the router should expect requests to follow.
+  #we set up the resources :pieces route so that Rails knows we are going to follow RESTful conventions for the model named pieces
   #now we can use the path http://localhost:3000/pieces/ and the router will understand we want a list of all the pieces
   resources :pieces
 

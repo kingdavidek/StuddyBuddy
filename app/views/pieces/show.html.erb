@@ -3,5 +3,12 @@
 <p>Author: <%= @pieces.author %></p>
 <p>Subject: <%= @pieces.subject %></p>
 <p>Summary: <%= @pieces.summary %></p>
+
+
+<%= link_to "delete", piece_path(@pieces), method: :delete, data: {confirm: "Really delete the article?"}
+ %>
+
+<%= link_to "edit", edit_piece_path(@pieces) %>
+
 <%= link_to "<< Back to Pieces List", pieces_path %>
 <!--REMEMBER, pieces_path is just pieces/index -->
