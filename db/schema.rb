@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718100821) do
+ActiveRecord::Schema.define(version: 20160725165500) do
 
   create_table "books", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -31,5 +31,18 @@ ActiveRecord::Schema.define(version: 20160718100821) do
     t.text     "thoughts"
     t.text     "questions"
   end
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "name"
+    t.text     "broader_context"
+    t.text     "summary"
+    t.text     "key_questions_addressed"
+    t.text     "thoughts"
+    t.integer  "piece_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "sections", ["piece_id"], name: "index_sections_on_piece_id"
 
 end
