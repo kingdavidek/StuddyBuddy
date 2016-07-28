@@ -4,7 +4,12 @@
 <p>Subject: <%= @pieces.subject %></p>
 <p>Summary: <%= @pieces.summary %></p>
 
-
+<% @pieces.sections.each do |section| %>
+    <li>
+      <%= link_to section.name, piece_sections_path(section), class: 'piece_name' %>
+      <!-- this middle part 'piece.name' is the part we want the link to say, the next part is our route helper.-->
+    </li>
+  <% end %>
 <%= link_to "delete", piece_path(@pieces), method: :delete, data: {confirm: "Really delete the article?"}
  %>
 
