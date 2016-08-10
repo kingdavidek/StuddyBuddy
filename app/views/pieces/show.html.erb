@@ -1,19 +1,24 @@
 
-<h1><%= @pieces.name %></h1>
-<p>Author: <%= @pieces.author %></p>
-<p>Subject: <%= @pieces.subject %></p>
-<p>Summary: <%= @pieces.summary %></p>
+<h1><%= @piece.name %></h1>
+<p>Author: <%= @piece.author %></p>
+<p>Subject: <%= @piece.subject %></p>
+<br />
+<p>Summary: <%= @piece.summary %></p>
+<br/>
 
-<% @pieces.sections.each do |section| %>
+<% @piece.sections.each do |section| %>
     <li>
-      <%= link_to section.name, piece_sections_path(section), class: 'piece_name' %>
-      <!-- this middle part 'piece.name' is the part we want the link to say, the next part is our route helper.-->
+      <%= link_to section.name, piece_section_path(@piece, section), class: 'section_name' %>
+      <!-- this middle part 'piece.name' is the psart we want the link to say, the next part is our route helper.-->
     </li>
   <% end %>
-<%= link_to "delete", piece_path(@pieces), method: :delete, data: {confirm: "Really delete the article?"}
+
+<br />
+
+<%= link_to "delete", piece_path(@piece), method: :delete, data: {confirm: "Really delete the article?"}
  %>
 
-<%= link_to "edit", edit_piece_path(@pieces) %>
+<%= link_to "edit", edit_piece_path(@piece) %>
 
 <%= link_to "<< Back to Pieces List", pieces_path %>
 <!--REMEMBER, pieces_path is just pieces/index -->
