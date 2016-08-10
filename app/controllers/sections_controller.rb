@@ -33,5 +33,20 @@ class SectionsController < ApplicationController
 		flash.notice = "Section '#{@section.name}' from '#{@piece.name}' deleted!"
 	end
 
+	def edit
+		@piece = Piece.find(params[:piece_id])
+		@section = @piece.sections.find(params[:id])
+	end
+
+	def update
+		@piece = Piece.find(params[:piece_id])
+		@section = @piece.sections.find(params[:id])
+		@section.update(section_params)
+
+		flash.notice = "Section '#{@section.name}' Updated!"
+
+		redirect_to piece_section_path(@piece, @section)
+	end
+
 
 end

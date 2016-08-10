@@ -18,10 +18,10 @@
 <h5>Thoughts: </h5><p><%= @piece.thoughts %></p>
 <br/>
 
-<%= link_to "delete", piece_path(@piece), method: :delete, data: {confirm: "Really delete the article?"}
+<%= link_to "Delete", piece_path(@piece), method: :delete, data: {confirm: "Really delete the article?"}
  %>
 
-<%= link_to "edit", edit_piece_path(@piece) %>
+<%= link_to "Edit", edit_piece_path(@piece) %>
 
 <%= link_to "<< Back to Pieces List", pieces_path %>
 <!--REMEMBER, pieces_path is just pieces/index -->

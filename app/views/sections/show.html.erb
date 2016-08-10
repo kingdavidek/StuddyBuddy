@@ -10,6 +10,7 @@
 <br/>
 <br/>
 <%= link_to "Delete", piece_section_path(@piece, @section), method: :delete, data: {confirm: "Really delete section?"} %>
+<%= link_to "Edit", edit_piece_section_path(@piece, @section)  %>
 <br/>
 <%= link_to "<< Back to Pieces List", pieces_path %>
 <%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>
