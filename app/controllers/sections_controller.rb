@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+	include SectionsHelper
 
 	def index
 		@piece = Piece.find(params[:piece_id])
@@ -8,8 +9,19 @@ class SectionsController < ApplicationController
 	def show
 		@piece = Piece.find(params[:piece_id])
 		@section = @piece.sections.find(params[:id])
-		#@sections = Piece.sections.find(params[:id])
-		#@sections = @piece.sections.all
-		#@sections.piece_id = @pieces.id
+	end
+
+	def new
+		@piece = Piece.find(params[:piece_id])
+		@section = Section.new
+		@section.piece_id = @piece.id 
+	end
+
+	def create
+		@piece = Piece.find(params[:piece_id])
+		@section = @piece.sections.new(section_params)
+		@section.save
+		redirect_to piece_section_path(@piece, @section)
+		flash.notice = "Section '#{@section.name}' Created!"
 	end
 end
