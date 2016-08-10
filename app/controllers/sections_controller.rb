@@ -24,4 +24,14 @@ class SectionsController < ApplicationController
 		redirect_to piece_section_path(@piece, @section)
 		flash.notice = "Section '#{@section.name}' Created!"
 	end
+
+	def destroy
+		@piece = Piece.find(params[:piece_id])
+		@section = @piece.sections.find(params[:id])
+		@section.destroy
+		redirect_to piece_path(@piece)
+		flash.notice = "Section '#{@section.name}' from '#{@piece.name}' deleted!"
+	end
+
+
 end
