@@ -7,3 +7,7 @@
 <h5> Key questions Addressed:</h5><p><%= @section.key_questions_addressed %></p>
 <br/>
 <h5> Summary:</h5><p><%= @section.summary %></p>
+<br/>
+<br/>
+<%= link_to "<< Back to Pieces List", pieces_path %>
+<%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>
