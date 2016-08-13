@@ -18,6 +18,10 @@
 <h5>Thoughts: </h5><p><%= @piece.thoughts %></p>
 <br/>
 
+<h3>Relevant Links</h3>
+<%= render partial: 'pieces/link', collection: @piece.links %>
+
+
 <%= link_to "Delete", piece_path(@piece), method: :delete, data: {confirm: "Really delete the article?"}
  %>
 

@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725165500) do
+ActiveRecord::Schema.define(version: 20160813190527) do
 
   create_table "books", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "links", force: :cascade do |t|
+    t.string   "author_name"
+    t.text     "url"
+    t.text     "basis"
+    t.integer  "piece_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "links", ["piece_id"], name: "index_links_on_piece_id"
 
   create_table "pieces", force: :cascade do |t|
     t.datetime "created_at", null: false

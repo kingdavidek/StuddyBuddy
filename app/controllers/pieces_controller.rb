@@ -6,7 +6,7 @@ class PiecesController < ApplicationController
 		@pieces = Piece.all
 	end 
 
-	def show
+	def show 
 		@piece = Piece.find(params[:id])
 		#'params' is a method which returns a hash of the request parameters'
 	end
