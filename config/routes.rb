@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :pieces do
     resources :sections
+    resources :links
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

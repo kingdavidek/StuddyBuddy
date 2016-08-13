@@ -1,0 +1,15 @@
+<h5>Add a Link</h5>
+
+<%= form_for [ @piece, @link ] do |f| %>
+  <p>
+    <%= f.label :author_name %><br/>
+    <%= f.text_field :author_name %>
+  </p>
+  <p>
+    <%= f.label :url %><br/>
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

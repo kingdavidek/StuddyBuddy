@@ -8,6 +8,8 @@ class PiecesController < ApplicationController
 
 	def show 
 		@piece = Piece.find(params[:id])
+		@link = Link.new
+		@link.piece_id = @piece.id
 		#'params' is a method which returns a hash of the request parameters'
 	end
 
@@ -19,7 +21,7 @@ class PiecesController < ApplicationController
 	def create
 		@pieces = Piece.new(piece_params)
 		@pieces.save
-		redirect_to pieces_path(@pieces)
+		redirect_to piece_path(@pieces)
 		flash.notice = "Piece '#{@pieces.name}' Created!"
 	end
 
