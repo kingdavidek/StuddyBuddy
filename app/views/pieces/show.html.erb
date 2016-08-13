@@ -5,6 +5,7 @@
 <br />
 <h5>Summary: </h5><p><%= @piece.summary %></p>
 <br/>
+<p><%= link_to @piece.name, piece_sections_path(@piece), class: 'section_name' %></p>
 
 <% @piece.sections.each do |section| %>
     <li>

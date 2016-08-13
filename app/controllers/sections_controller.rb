@@ -3,7 +3,6 @@ class SectionsController < ApplicationController
 
 	def index
 		@piece = Piece.find(params[:piece_id])
-		@section = @piece.sections.find(params[:section_id])
 	end
 
 	def show

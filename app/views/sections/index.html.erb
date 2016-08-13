@@ -1,1 +1,13 @@
 
+<h1>All sections for <%= @piece.name %></h1>
+
+<% @piece.sections.each do |section| %>
+    <li>
+      <p><%= section.name %> </p>
+      <p>Summary: <%= section.summary %> </p>
+      <p>Thoughts: <%= section.thoughts %> </p>
+      <!-- this middle part 'piece.name' is the psart we want the link to say, the next part is our route helper.-->
+    </li>
+  <% end %>
+
+<br />
