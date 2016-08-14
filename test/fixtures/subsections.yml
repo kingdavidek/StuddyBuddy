@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  broader_context: MyText
+  summary: MyText
+  key_questions_addressed: MyText
+  thoughts: MyText
+  section_id: 
+
+two:
+  name: MyString
+  broader_context: MyText
+  summary: MyText
+  key_questions_addressed: MyText
+  thoughts: MyText
+  section_id: 
