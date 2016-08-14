@@ -1,12 +1,12 @@
 <h1> <%= @piece.name%></h1>
 <h2> <%= @section.name%></h2>
-<h5> Broader Context:</h5> <p> <%= @section.broader_context %></p>
+<h5> Broader Context:</h5> <p> <%= simple_format(@section.broader_context) %></p>
 
 
 <br/>
-<h5> Key questions Addressed:</h5><p><%= @section.key_questions_addressed %></p>
+<h5> Key questions Addressed:</h5><p><%= simple_format(@section.key_questions_addressed) %></p>
 <br/>
-<h5> Summary:</h5><p><%= @section.summary %></p>
+<h5> Summary:</h5><p><%= simple_format(@section.summary) %></p>
 <br/>
 <br/>
 <%= link_to "Delete", piece_section_path(@piece, @section), method: :delete, data: {confirm: "Really delete section?"} %>

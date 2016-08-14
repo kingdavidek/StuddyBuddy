@@ -3,7 +3,7 @@
 <h5>Author: </h5><p><%= @piece.author %></p>
 <h5>Subject: </h5> <p><%= @piece.subject %></p>
 <br />
-<h5>Summary: </h5><p><%= @piece.summary %></p>
+<h5>Summary: </h5><p><%= simple_format(@piece.summary) %></p>
 <br/>
 <p><%= link_to @piece.name, piece_sections_path(@piece), class: 'section_name' %></p>
 
@@ -16,7 +16,7 @@
 
 <br />
 
-<h5>Thoughts: </h5><p><%= @piece.thoughts %></p>
+<h5>Thoughts: </h5><p><%= simple_format(@piece.thoughts) %></p>
 <br/>
 
 
