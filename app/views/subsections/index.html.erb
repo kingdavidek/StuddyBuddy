@@ -1,0 +1,17 @@
+<h1>All Subsections for <%= @section.name %></h1>
+
+<% @section.subsections.each do |subsection| %>
+    <li>
+      <p><%= subsection.name %> </p>
+      <p>Summary: <%= simple_format(subsection.summary) %> </p>
+      <p>Thoughts: <%= simple_format(subsection.thoughts) %> </p>
+      <!-- this middle part 'piece.name' is the psart we want the link to say, the next part is our route helper.-->
+    </li>
+  <% end %>
+
+<br />
+
+<br/>
+<%= link_to "<< Back to Pieces List", pieces_path %>
+<%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>
+<%= link_to "Add a Section", new_piece_section_path(@piece), class: "new_article" %>

@@ -8,6 +8,17 @@
 <br/>
 <h5> Summary:</h5><p><%= simple_format(@section.summary) %></p>
 <br/>
+<p><%= link_to @section.name, piece_section_subsections_path(@piece, @section), class: 'section_name' %></p>
+<br/>
+
+<% @section.subsections.each do |subsection| %>
+    <li>
+      <%= link_to subsection.name, piece_section_subsection_path(@piece, @section, subsection), class: 'subsection_name' %>
+      <!-- this middle part 'piece.name' is the psart we want the link to say, the next part is our route helper.-->
+    </li>
+  <% end %>
+
+<br />
 <br/>
 <%= link_to "Delete", piece_section_path(@piece, @section), method: :delete, data: {confirm: "Really delete section?"} %>
 <%= link_to "Edit", edit_piece_section_path(@piece, @section)  %>
@@ -15,3 +26,4 @@
 <%= link_to "<< Back to Pieces List", pieces_path %>
 <%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>
 
+<%= link_to "Add a Subsection", new_piece_section_subsection_path(@piece, @section), class: "new_article" %>

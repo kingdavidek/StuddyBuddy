@@ -1,0 +1,17 @@
+<h1> <%= @piece.name%></h1>
+<h2> <%= @section.name%></h2>
+<h2> <%= @subsection.name%></h2>
+<h5> Broader Context:</h5> <p> <%= simple_format(@subsection.broader_context) %></p>
+
+
+<br/>
+<h5> Key questions Addressed:</h5><p><%= simple_format(@subsection.key_questions_addressed) %></p>
+<br/>
+<h5> Summary:</h5><p><%= simple_format(@subsection.summary) %></p>
+<br/>
+<br/>
+<%= link_to "Delete", piece_section_subsection_path(@piece, @section, @subsection), method: :delete, data: {confirm: "Really delete Subsection?"} %>
+<%= link_to "Edit", edit_piece_section_subsection_path(@piece, @section, @subsection)  %>
+<br/>
+<%= link_to "<< Back to Pieces List", pieces_path %>
+<%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>

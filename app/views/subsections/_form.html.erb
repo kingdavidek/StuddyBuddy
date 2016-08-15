@@ -1,0 +1,34 @@
+<%= form_for [ @piece, @section, @subsection] do |f| %>
+  <ul>
+  <% @subsection.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :broader_context %><br />
+    <%= f.text_area :broader_context %>
+  </p>
+
+  <p>
+    <%= f.label :key_questions_addressed %><br />
+    <%= f.text_area :key_questions_addressed %>
+  </p>
+
+  <p>
+    <%= f.label :summary %><br />
+    <%= f.text_area :summary %>
+  </p>
+
+  <p>
+    <%= f.label :thoughts %><br />
+    <%= f.text_area :thoughts %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
