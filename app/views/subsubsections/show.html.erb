@@ -16,6 +16,9 @@
 
 <br />
 <br/>
+<p><%= link_to "'General Piece Overview", piece_section_subsection_subsubsections_path(@piece, @section, @subsection), class: 'section_name' %></p>
+
+<br/>
 <%= link_to "<< Back to Pieces List >> ", pieces_path %>
 
 <%= link_to "Delete", piece_section_subsection_path(@piece, @section, @subsection), method: :delete, data: {confirm: "Really delete Subsection?"} %>

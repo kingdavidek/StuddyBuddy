@@ -4,13 +4,35 @@
 <%= link_to "  >>  " + @section.name + ".", piece_section_path(@piece, @section) %>
 <%= link_to "  >>  " + @subsection.name + ".", piece_section_subsection_path(@piece, @section, @subsection) %>
 <br/>
-<% @subsection.subsubsections.each do |subsubsection| %>
-    <li>
-      <p><%= subsubsection.name %> </p>
-      <p>Summary: <%= simple_format(subsubsection.summary) %> </p>
-      <p>Thoughts: <%= simple_format(subsubsection.thoughts) %> </p>
+<% @piece.sections.each do |section| %>
+	<ul>
+		<li><h2>"<%= section.name %>"</h2>
+			<i> Summary:</i><p><%= simple_format(section.summary) %> </p>
+			<i> Broader Context:</i><p> <%= simple_format(section.broader_context) %> </p>
+			<i> Key Questions Addressed</i><p> <%= simple_format(section.key_questions_addressed) %> </p>
+      		<i> Thoughts</i><p> <%= simple_format(section.thoughts) %> </p></li>
+      		<br/>
+      	<li><% section.subsections.each do |subsection| %>
+		
+			<p><h4>"<%= subsection.name %>"</h4></p>
+			<i> Summary:</i><p> <%= simple_format(subsection.summary) %> </p>
+			<i> Broader Context:</i><p><%= simple_format(subsection.broader_context) %> </p>
+			<i>Key questions addressed: </i><p><%= simple_format(subsection.key_questions_addressed) %> </p>
+      		<i>Thoughts: </i><p><%= simple_format(subsection.thoughts) %> </p></li>
+      		<br/>
+		<li><% @subsection.subsubsections.each do |subsubsection| %>
+    	
+      	<p><strong>"<%= subsubsection.name %> "</strong></p>
+      	<i> Summary:</i><p> <%= simple_format(subsubsection.summary) %> </p>
+      	<i> Broader Context:</i><p> <%= simple_format(subsubsection.broader_context) %> </p>
+		<i>Key questions addressed: </i><p><%= simple_format(subsubsection.key_questions_addressed) %> </p>
+      	<i>Thoughts: </i><p><%= simple_format(subsubsection.thoughts) %> </p></li>
+      	<br/>
+      	<br/>
       <!-- this middle part 'piece.name' is the psart we want the link to say, the next part is our route helper.-->
-    </li>
+    </ul>
+    <%end %>
+    <%end %>
   <% end %>
 
 <br />
