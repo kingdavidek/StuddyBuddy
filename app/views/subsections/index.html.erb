@@ -1,4 +1,4 @@
-<h1>All Subsections for <%= @section.name %></h1>
+<h1>All Subsections for "<%= @section.name %>"</h1>
 
 <% @section.subsections.each do |subsection| %>
     <li>
@@ -14,4 +14,6 @@
 <br/>
 <%= link_to "<< Back to Pieces List", pieces_path %>
 <%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>
+<%= link_to "  << Back to Section", piece_section_path(@piece, @section) %>
+
 <%= link_to "Add a Section", new_piece_section_path(@piece), class: "new_article" %>

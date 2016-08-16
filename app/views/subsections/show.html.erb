@@ -1,6 +1,7 @@
 <h1> <%= @piece.name%></h1>
 <h2> <%= @section.name%></h2>
-<h2> <%= @subsection.name%></h2>
+<h3> <%= @subsection.name%></h3>
+<br/>
 <h5> Broader Context:</h5> <p> <%= simple_format(@subsection.broader_context) %></p>
 
 
@@ -15,3 +16,4 @@
 <br/>
 <%= link_to "<< Back to Pieces List", pieces_path %>
 <%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>
+<%= link_to "  << Back to Section", piece_section_path(@piece, @section) %>
