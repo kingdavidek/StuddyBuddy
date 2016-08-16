@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :pieces do
     resources :sections do
-      resources :subsections
+      resources :subsections do 
+        resources :subsubsections
+      end
     end
     resources :links
   end
