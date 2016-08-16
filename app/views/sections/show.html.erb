@@ -1,5 +1,7 @@
-<h1> <%= @piece.name%></h1>
-<h2> <%= @section.name%></h2>
+<h1> <%= @section.name%></h1>
+<%= link_to "Piece: " + @piece.name + ".", piece_path(@piece) %>
+<br/>
+<br/>
 <h5> Broader Context:</h5> <p> <%= simple_format(@section.broader_context) %></p>
 
 
@@ -23,7 +25,7 @@
 <%= link_to "Delete", piece_section_path(@piece, @section), method: :delete, data: {confirm: "Really delete section?"} %>
 <%= link_to "Edit", edit_piece_section_path(@piece, @section)  %>
 <br/>
-<%= link_to "<< Back to Pieces List", pieces_path %>
-<%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>
+<%= link_to "<< Back to Pieces List >>", pieces_path %>
+
 
 <%= link_to "Add a Subsection", new_piece_section_subsection_path(@piece, @section), class: "new_article" %>

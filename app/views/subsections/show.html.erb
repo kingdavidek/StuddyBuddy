@@ -1,6 +1,10 @@
-<h1> <%= @piece.name%></h1>
-<h2> <%= @section.name%></h2>
-<h3> <%= @subsection.name%></h3>
+<h1> <%= @subsection.name%></h1>
+<%= link_to " Piece: " + @piece.name + ".", piece_path(@piece) %>
+<%= link_to "  >> " + @section.name + ".", piece_section_path(@piece, @section) %>
+<%= link_to "Add a Mini section", new_piece_section_subsection_subsubsection_path(@piece, @section, @subsection), class: "new_article" %>
+
+
+<br/>
 <br/>
 <h5> Broader Context:</h5> <p> <%= simple_format(@subsection.broader_context) %></p>
 
@@ -10,10 +14,20 @@
 <br/>
 <h5> Summary:</h5><p><%= simple_format(@subsection.summary) %></p>
 <br/>
+<p><%= link_to "'" + @subsection.name + "'" + " Mini Sections:", piece_section_subsection_subsubsections_path(@piece, @section, @subsection), class: 'section_name' %></p>
+
+<% @subsection.subsubsections.each do |subsubsection| %>
+    <li>
+      <%= link_to subsubsection.name, piece_section_subsection_subsubsection_path(@piece, @section, @subsection, subsubsection), class: 'subsubsection_name' %>
+      <!-- this middle part 'piece.name' is the psart we want the link to say, the next part is our route helper.-->
+    </li>
+  <% end %>
+
+<br />
 <br/>
 <%= link_to "Delete", piece_section_subsection_path(@piece, @section, @subsection), method: :delete, data: {confirm: "Really delete Subsection?"} %>
 <%= link_to "Edit", edit_piece_section_subsection_path(@piece, @section, @subsection)  %>
 <br/>
-<%= link_to "<< Back to Pieces List", pieces_path %>
-<%= link_to "<< Back to Piece: " + @piece.name + ".", piece_path(@piece) %>
-<%= link_to "  << Back to Section", piece_section_path(@piece, @section) %>
+<%= link_to "<< Back to Pieces List >>", pieces_path %>
+<br/>
+
