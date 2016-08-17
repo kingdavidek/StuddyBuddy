@@ -4,7 +4,14 @@
 <h5>Subject: </h5> <p><%= @piece.subject %></p>
 <br />
 <h5>Summary: </h5><p><%= simple_format(@piece.summary) %></p>
-
+<br/>
+<br/>
+<% sect = @piece.sections.first %>
+  
+  <% subs = sect.subsections.first %>
+    
+    <% subsub = subs.subsubsections.first  %>
+      <p><%= link_to "Extensive Overview", piece_section_subsection_subsubsections_path(@piece, sect, subs, subsub) %></p>
 <br/>
 <p><%= link_to @piece.name, piece_sections_path(@piece), class: 'section_name' %></p>
 
@@ -40,3 +47,24 @@
 <!--REMEMBER, pieces_path is just pieces/index -->
 
 <%= link_to "Add a Section", new_piece_section_path(@piece), class: "new_article" %>
+
+
+<br/>
+
+  <br/>
+  <br/>
+  <br/>
+  <h5>Contents for: "<%= @piece.name %>"" </h5>
+  <br/>
+<% @piece.sections.each do |section| %>
+  <p><%= link_to section.name, piece_section_path(@piece, section)  %> <br/>
+  <% section.subsections.each do |subsection| %>
+    <%= link_to subsection.name, piece_section_subsection_path(@piece, section, subsection) %><br/>
+    <% subsection.subsubsections.each do |subsubsection| %>
+      <%= link_to subsubsection.name, piece_section_subsection_subsubsection_path(@piece, section, subsection, subsubsection) %></p>
+      <br/>
+      <br/>
+      <% end %>
+    <% end %>
+  <% end %>
+
