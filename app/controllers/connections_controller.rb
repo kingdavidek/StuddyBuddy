@@ -2,13 +2,30 @@ class ConnectionsController < ApplicationController
 	include ConnectionsHelper
 
 	def create
-		@section = Section.find(params[:section_id])
-	  @piece = @section.piece_id
+		if params[:section_id]
+			@section = Section.find(params[:section_id])
+			@piece = @section.piece_id
+			parameter = :section_id
+			type = "Section"
+		elsif params[:subsection_id]
+			@subsection = Subsection.find(params[:subsection_id])
+			@section = @subsection.section_id
+
+			@piece = Section.find(id=@section).piece_id
+			parameter = :subsection_id
+			type = "Subsection"
+		end
+			
 	  @connection = Connection.new(connection_params)
 
-	  @connection.connectable_id = params[:section_id]
-	  @connection.connectable_type = "Section"
+	  @connection.connectable_id = params[parameter]
+	  @connection.connectable_type = type
 	  @connection.save
-	  redirect_to piece_section_path(@piece, @section)
+	  	if type == "Section"
+	  		redirect_to piece_section_path(@piece, @section)
+	  	elsif type == "Subsection"
+	  		redirect_to piece_section_subsection_path(@piece, @section, @subsection)
+	  	end
+	  			
 	end
 end
