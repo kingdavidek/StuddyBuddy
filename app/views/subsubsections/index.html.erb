@@ -1,8 +1,8 @@
-<h1>All Mini Sections for "<%= @subsection.name %>"</h1>
+<h1>Extensive Overview </h1>
 <br/>
 <%= link_to " Piece: " + @piece.name + ".", piece_path(@piece) %>
-<%= link_to "  >>  " + @section.name + ".", piece_section_path(@piece, @section) %>
-<%= link_to "  >>  " + @subsection.name + ".", piece_section_subsection_path(@piece, @section, @subsection) %>
+
+<br/>
 <br/>
 <% @piece.sections.each do |section| %>
 	<ul>

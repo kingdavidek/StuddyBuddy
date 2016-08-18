@@ -8,6 +8,8 @@ class SectionsController < ApplicationController
 	def show
 		@piece = Piece.find(params[:piece_id])
 		@section = @piece.sections.find(params[:id])
+		@connection = Connection.new
+		@connection.connectable_id = @section.id
 	end
 
 	def new

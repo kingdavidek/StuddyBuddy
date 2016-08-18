@@ -19,7 +19,12 @@
       <!-- this middle part 'piece.name' is the psart we want the link to say, the next part is our route helper.-->
     </li>
   <% end %>
+<br/>
 
+<h4>Connections</h4>
+<%= render partial: 'sections/connection', collection: @section.connections %>
+<br/>
+<%= render partial: 'connections/form' %>
 <br />
 <br/>
 <%= link_to "Delete", piece_section_path(@piece, @section), method: :delete, data: {confirm: "Really delete section?"} %>

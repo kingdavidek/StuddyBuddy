@@ -1,3 +1,4 @@
 class Subsubsection < ActiveRecord::Base
-  belongs_to :subsection
+	include Connectable
+  	belongs_to :subsection
 end

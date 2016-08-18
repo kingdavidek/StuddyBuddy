@@ -22,6 +22,10 @@
       <!-- this middle part 'piece.name' is the psart we want the link to say, the next part is our route helper.-->
     </li>
   <% end %>
+<h4>Connections</h4>
+<%= render partial: 'subsections/connection', collection: @subsection.connections %>
+<br/>
+<%= render partial: 'connections/sform' %>
 
 <br />
 <br/>
