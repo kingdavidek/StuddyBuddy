@@ -20,12 +20,10 @@
     </li>
   <% end %>
 <br/>
-
+<br />
 <h4>Connections</h4>
 <%= render partial: 'sections/connection', collection: @section.connections %>
-<br/>
-<%= render partial: 'connections/form' %>
-<br />
+
 <br/>
 <%= link_to "Delete", piece_section_path(@piece, @section), method: :delete, data: {confirm: "Really delete section?"} %>
 <%= link_to "Edit", edit_piece_section_path(@piece, @section)  %>
@@ -34,3 +32,8 @@
 
 
 <%= link_to "Add a Subsection", new_piece_section_subsection_path(@piece, @section), class: "new_article" %>
+<br />
+<br />
+
+<br/>
+<%= render partial: 'connections/form' %>

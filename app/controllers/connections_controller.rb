@@ -14,6 +14,14 @@ class ConnectionsController < ApplicationController
 			@piece = Section.find(id=@section).piece_id
 			parameter = :subsection_id
 			type = "Subsection"
+		elsif params[:subsubsection_id]
+			@subsubsection = Subsubsection.find(params[:subsubsection_id])
+			@subsection = @subsubsection.subsection_id
+			@section = Subsection.find(id=@subsection).section_id
+			@piece = Section.find(id=@section).piece_id
+
+			parameter = :subsubsection_id
+			type = "Subsubsection"
 		end
 			
 	  @connection = Connection.new(connection_params)
@@ -25,6 +33,8 @@ class ConnectionsController < ApplicationController
 	  		redirect_to piece_section_path(@piece, @section)
 	  	elsif type == "Subsection"
 	  		redirect_to piece_section_subsection_path(@piece, @section, @subsection)
+	  	elsif type == "Subsubsection"
+	  		redirect_to piece_section_subsection_subsubsection_path(@piece, @section, @subsection, @subsubsection)
 	  	end
 	  			
 	end

@@ -12,6 +12,8 @@ class SubsubsectionsController < ApplicationController
 		@section = @piece.sections.find(params[:section_id])
 		@subsection = @section.subsections.find(params[:subsection_id])
 		@subsubsection = @subsection.subsubsections.find(params[:id])
+		@connection = Connection.new
+		@connection.connectable_id = @subsection.id
 	end
 
 	def new
