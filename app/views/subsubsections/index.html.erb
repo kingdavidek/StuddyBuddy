@@ -4,8 +4,11 @@
 
 <br/>
 <br/>
-<% @piece.sections.each do |section| %>
-	<ul>
+<% @piece.sections.each_with_index do |section, index| %>
+	<% if index == 0 %>
+     <%  next  %>
+     <% end %>
+  <ul>
 		<li><h2>"<%= section.name %>"</h2>
 			<i> Summary:</i><p><%= simple_format(section.summary) %> </p>
 			<i> Broader Context:</i><p> <%= simple_format(section.broader_context) %> </p>

@@ -1,5 +1,6 @@
 class Piece < ActiveRecord::Base
 	include Connectable
+	include Conceptable
 	has_many :sections
 	has_many :subsections, through: :sections
 	has_many :links

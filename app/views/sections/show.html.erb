@@ -10,6 +10,13 @@
 <br/>
 <h5> Summary:</h5><p><%= simple_format(@section.summary) %></p>
 <br/>
+<% @section.key_concepts.each do |concept| %>
+    <li>
+      <%= link_to concept.definition, @redirect, class: 'section_name' %>
+    </li>
+  <% end %>
+<br/>
+<br/>
 <p><%= link_to @section.name, piece_section_subsections_path(@piece, @section), class: 'section_name' %></p>
 <br/>
 

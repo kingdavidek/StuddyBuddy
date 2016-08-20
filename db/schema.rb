@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817194235) do
+ActiveRecord::Schema.define(version: 20160818122654) do
 
   create_table "books", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 20160817194235) do
     t.string   "connectable_type"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "key_concepts", force: :cascade do |t|
+    t.string   "author_name"
+    t.text     "definition"
+    t.text     "basis"
+    t.text     "people_attributed"
+    t.text     "thoughts"
+    t.integer  "conceptable_id"
+    t.string   "conceptable_type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "links", force: :cascade do |t|

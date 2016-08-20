@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   #now we can use the path http://localhost:3000/pieces/ and the router will understand we want a list of all the pieces
   root to: 'pieces#index'
 
-  resources :pieces, :sections, :subsections, :subsubsections do
-    resources :connections, only: [:index, :new, :edit, :update, :destroy, :create]
-  end
+
 
   resources :pieces do
     resources :sections do
@@ -16,4 +14,10 @@ Rails.application.routes.draw do
     end
     resources :links
   end
+
+  resources :pieces, :sections, :subsections, :subsubsections do
+    resources :connections, only: [:index, :new, :edit, :update, :destroy, :create]
+    resources :key_concepts
+  end
+    
 end

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author_name: MyString
+  definition: MyText
+  basis: MyText
+  people_attributed: MyText
+  thoughts: MyText
+  conceptable_id: 1
+  conceptable_type: MyString
+
+two:
+  author_name: MyString
+  definition: MyText
+  basis: MyText
+  people_attributed: MyText
+  thoughts: MyText
+  conceptable_id: 1
+  conceptable_type: MyString

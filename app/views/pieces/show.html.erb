@@ -5,6 +5,13 @@
 <br />
 <h5>Summary: </h5><p><%= simple_format(@piece.summary) %></p>
 <br/>
+<% @piece.key_concepts.each do |concept| %>
+    <li>
+      <%= link_to concept.definition, piece_key_concept_path(@piece, @keyconcept) %>
+      <!-- we didn't use #[@piece, @keyconcept], class: 'section_name'  and it worked -->
+    </li>
+  <% end %>
+<br/>
 <br/>
 <% sect = @piece.sections.first %>
   
@@ -30,7 +37,6 @@
 
 <h3>Relevant Links (<%= @piece.links.size %>)</h3>
 <%= render partial: 'pieces/link', collection: @piece.links %>
-<%= render partial: 'links/form' %>
 
 <br/>
 <p>Last Updated: <%= @piece.updated_at.localtime %> </p>
@@ -51,8 +57,7 @@
 
 <br/>
 
-  <br/>
-  <br/>
+
   <br/>
   <h5>Contents for: "<%= @piece.name %>"" </h5>
   <br/>
@@ -67,4 +72,8 @@
       <% end %>
     <% end %>
   <% end %>
+  <br/>
+  <br/>
+  <br/>
 
+<%= render partial: 'links/form' %>

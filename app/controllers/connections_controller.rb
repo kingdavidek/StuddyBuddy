@@ -1,6 +1,6 @@
 class ConnectionsController < ApplicationController
 	include ConnectionsHelper
-
+ 
 	def create
 		if params[:section_id]
 			@section = Section.find(params[:section_id])
